@@ -16,8 +16,8 @@ const validateAddress = (address?: `0x${string}`) => {
 
 const loadArgs = (): {tokenContractAddress: `0x${string}`, receiverAddress: `0x${string}`, amount: string} => {
   if (process.argv.length != 5) {
-    throw new Error("Usage: npx ts-node --files ./scripts/DeployBallotContracts.ts " + 
-    "<tokenContractAddress> <receiverAddress> <amount>");
+    throw new Error("Usage: npx ts-node --files ./scripts/DeployBallotContracts.ts " +
+        "<tokenContractAddress> <receiverAddress> <amount>");
   }
   const tokenContractAddress = process.argv.at(2) as `0x${string}`;
   validateAddress(tokenContractAddress);
@@ -69,7 +69,7 @@ async function main() {
       console.log("Transaction hash:", hash);
       console.log("Waiting for confirmations...");
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
-      console.log("Mint successful");
+      console.log("Mint successful", receipt);
     } else {
       console.log("Operation cancelled");
     }
