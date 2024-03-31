@@ -19,3 +19,4 @@ by:
 npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 5600947 chocolate vanilla potato strawberry onion
 ```
 TokenizedBallot contract deployed to: `0x60238ece2cab9a9c19a579df9287e0018d878aa3`
+Transaction hash:   `0xfc5c190bc20670fb8d1c3b7c790caffec8ad495d87c081bed32fb8a369a263bd`
