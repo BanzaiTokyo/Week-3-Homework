@@ -21,13 +21,15 @@ contract TokenizedBallot {
         address _tokenContract,
         uint256 _targetBlockNumber
     ) {
+        // Initialize token contract and target block number
         tokenContract = IMyToken(_tokenContract);
+        targetBlockNumber = _targetBlockNumber;
 
-        if (block.number > _targetBlockNumber) {
-            targetBlockNumber = _targetBlockNumber;
-        } else {
-            targetBlockNumber = targetBlockNumber;
-        }
+        // Validate if targetBlockNumber is in the past
+        require(
+            _targetBlockNumber < block.number,
+            "targetBlockNumber must be in the past"
+        );
 
         for (uint i = 0; i < _proposalNames.length; i++) {
             proposals.push(Proposal({name: _proposalNames[i], voteCount: 0}));
@@ -43,9 +45,9 @@ contract TokenizedBallot {
         );
         votePowerSpent[msg.sender] += amount;
         proposals[proposal].voteCount += amount;
-        // TODO
     }
 
+    // Function that determines the winning proposal
     function winningProposal() public view returns (uint winningProposal_) {
         uint winningVoteCount = 0;
         for (uint p = 0; p < proposals.length; p++) {
@@ -54,9 +56,9 @@ contract TokenizedBallot {
                 winningProposal_ = p;
             }
         }
-        return winningProposal_;
     }
 
+    // Function to get the name of the winning proposal
     function winnerName() external view returns (bytes32 winnerName_) {
         winnerName_ = proposals[winningProposal()].name;
     }
