@@ -6,3 +6,7 @@ by:
 - Mauro Monso @Mauro.Monso 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
 - Loic Balum @0xcoil 0x8f63A3E560b4bEBCf8bF056cbb8fC8E4b36B1b80
 - Ilya Shulman @kwindi 0x90445D3131521092DB770a8f8122268ADBD526A0.
+
+
+
+**Sergey** Deployed MyToken contract at `0x18e72b21126c8d58375c71db7fcc7525747fe6dd`
