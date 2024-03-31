@@ -3,6 +3,7 @@ import {privateKeyToAccount} from "viem/accounts";
 import {sepolia} from "viem/chains";
 import * as dotenv from "dotenv";
 import {viem} from "hardhat";
+import { abi, bytecode } from "../artifacts/contracts/TokenizedBallot.sol/TokenizedBallot.json";
 
 dotenv.config();
 
@@ -55,8 +56,16 @@ async function main() {
         voter.chain.nativeCurrency.symbol
     );
 
-    const ballotContract = await viem.getContractAt("TokenizedBallot", ballotContractAddress);
-    const proposal = hexToString((await ballotContract.read.proposals([proposalNumber]))[0]);
+    const proposalObj = await publicClient.readContract({
+      address: ballotContractAddress,
+      abi,
+      functionName: "proposals",
+      args: [proposalNumber],
+    }) as any;
+    if (!proposalObj) {
+      throw new Error('couldn\'t retrieve proposal');
+    }
+    const proposal = hexToString(proposalObj[0], { size: 32 });
 
     console.log(`\nVoting on proposal[${proposalNumber}] ${proposal} with ${amount} voting tokens`);
 
@@ -64,9 +73,12 @@ async function main() {
     const stdin = process.openStdin();
     stdin.addListener("data", async function (d) {
         if (d.toString().trim().toLowerCase() !== "n") {
-            const hash = await ballotContract.write.vote([
-                proposalNumber, parseEther(amount)
-            ], {account: voter.account.address});
+            const hash = await voter.writeContract({
+              address: ballotContractAddress,
+              abi,
+              functionName: "vote",
+              args: [proposalNumber, parseEther(amount)]
+            });
             console.log("Transaction hash:", hash);
             console.log("Waiting for confirmations...");
             const receipt = await publicClient.waitForTransactionReceipt({hash});
