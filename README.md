@@ -14,6 +14,22 @@ by:
 
 @jvalero.dv contract MyToken deployed at `0xbdca53dd3a6fd9663774a6b158c7277435deab4e`
 
+Calling mint function on Mytoken contract to provide 20 tokens to each of the participants:
+
+```bash
+npx ts-node --files ./scripts/GiveVotingTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x765A6B5fB4aBE2381bC2Be4928F3D09C978dc5BB 20
+```
+
+Tx hash: 0xea940f2382eff525f5b324b389b53e908947d817ce6e27388583ea3c52083f24
+Tx hash: 0x23856b1460e690a9492a8d074fa10bd1077d31c670efc7d9df96089685d6067e
+Tx hash: 0x6651c802adca9eea552585bbf777e50dcc99481204c1d6759b0a808421fb0506
+Tx hash: 0xf8371fdbf15948fb1854a8902868dd0710fb0f7fdcfb2f0de51f2cd6843afa09
+Tx hash: 0xa3a08039564ecf4b741c7bb299afa35378f17c85d9323433f9b4a4e94175ee6c
+Tx hash: 0xd580d177008df9c9a0931914a6e885642e986fdbaaef687069aaf09ee69115f6
+Tx hash: 0x9c8713d00ba56257d718aac7a109c285cf945ae97d0d84a6ad60b2c9486bee7a
+
+
+
 @sanfarans 
 ```bash
 npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 5600947 chocolate vanilla potato strawberry onion
