@@ -35,3 +35,22 @@ npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b1
 ```
 TokenizedBallot contract deployed to: `0x60238ece2cab9a9c19a579df9287e0018d878aa3`
 Transaction hash:   `0xfc5c190bc20670fb8d1c3b7c790caffec8ad495d87c081bed32fb8a369a263bd`
+
+**We forgot to delegate the votes, so the ballot is useless now. Will redeploy later after some time to self-delegate the votes**
+
+Check voting power, self-delegate, recheck voting power:
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29
+```
+Output: Account 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29 has 0 units of voting power
+
+```bash
+npx ts-node --files ./scripts/DelegateTok
+ens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29
+```
+Transaction hash: 0xc7b8c0f327f670e56f25824c8ef1b1bd0cec56d4ed00ed62da97456f270e0078
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29
+```
+Output: Account 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29 has 40000000000000000000 units of voting power
