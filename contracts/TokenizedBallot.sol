@@ -22,8 +22,13 @@ contract TokenizedBallot {
         uint256 _targetBlockNumber
     ) {
         tokenContract = IMyToken(_tokenContract);
-        targetBlockNumber = _targetBlockNumber;
-        // TODO: Validate if targetBlockNumber is in the past
+
+        if (block.number > _targetBlockNumber) {
+            targetBlockNumber = _targetBlockNumber;
+        } else {
+            targetBlockNumber = targetBlockNumber;
+        }
+
         for (uint i = 0; i < _proposalNames.length; i++) {
             proposals.push(Proposal({name: _proposalNames[i], voteCount: 0}));
         }
