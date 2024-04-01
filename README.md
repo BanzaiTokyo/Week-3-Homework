@@ -107,3 +107,14 @@ npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7
 ```
 Output
 Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 0 units of voting power
+Self Delegate
+```bash
+npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
+```
+Successful delegation Transaction hash: 0x5110424c459a107c99d283e6a3f5af33968646f11909ff84ff7c1232c3d93a4e
+Now I check again the voting power:
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
+```
+Output Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 20000000000000000000 units of voting power
+
