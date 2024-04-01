@@ -28,7 +28,7 @@ Tx hash: 0xa3a08039564ecf4b741c7bb299afa35378f17c85d9323433f9b4a4e94175ee6c
 Tx hash: 0xd580d177008df9c9a0931914a6e885642e986fdbaaef687069aaf09ee69115f6  
 Tx hash: 0x9c8713d00ba56257d718aac7a109c285cf945ae97d0d84a6ad60b2c9486bee7a
 
-@sanfarans
+**@sanfarans**
 
 ```bash
 npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 5600947 chocolate vanilla potato strawberry onion
@@ -60,7 +60,7 @@ npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7
 
 Output: Account 0xb2e0DceBaB0D4233E0c1F37C809b54B90cB95E29 has 40000000000000000000 units of voting power
 
-@jvalero.dv self-delegate and check voting power:
+**@jvalero.dv** self-delegate and check voting power:
 
 ```bash
 npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x765A6B5fB4aBE2381bC2Be4928F3D09C978dc5BB
@@ -69,3 +69,21 @@ npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c727
 Transaction hash: 0xd9483657136e988c6aa2247bbdc0588786527f9394ae768699d551a330774748
 
 Output: Account 0x765A6B5fB4aBE2381bC2Be4928F3D09C978dc5BB has 20000000000000000000 units of voting power
+
+**@BanzaiTokyo**  
+Check voting power, self-delegate, recheck voting power:
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
+```
+Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 0 units of voting power
+
+```bash
+npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
+```
+Transaction hash: 0x2b6019ca63c65dbb356b11946684ec4bc228520e395139f273fce6bc643a1f78
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
+```
+Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 20000000000000000000 units of voting power
