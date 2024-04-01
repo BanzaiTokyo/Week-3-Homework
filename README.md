@@ -100,3 +100,10 @@ Transaction hash: 0x3e466527322772a9a6bc52e5291876fc98be883a949b41d1fbec07c7205e
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2146a0B704Da9701D127B8722C572a6e6693EfD
 ```
 Account 0xb2146a0B704Da9701D127B8722C572a6e6693EfD has 20000000000000000000 units of voting power
+
+**@Mauro.Monso** check voting power:
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
+```
+Output
+Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 0 units of voting power
