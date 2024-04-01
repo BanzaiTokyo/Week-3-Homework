@@ -129,6 +129,31 @@ npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7
 
 Output Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 20000000000000000000 units of voting power
 
+**@xdaloo**
+Check voting power, self-delegate, recheck voting power:
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x8f63A3E5
+60b4bEBCf8bF056cbb8fC8E4b36B1b80
+```
+
+Output: Account 0x8f63A3E560b4bEBCf8bF056cbb8fC8E4b36B1b80 has 0 units of voting power
+
+```bash
+npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x8f63A3E560
+b4bEBCf8bF056cbb8fC8E4b36B1b80
+```
+
+Transaction hash: 0x5d202c0e93a7cdc95d453995e39a8c55291c07f696bda454bb1e67ce57cad0af
+
+Output : Delegate successful 0x5d202c0e93a7cdc95d453995e39a8c55291c07f696bda454bb1e67ce57cad0af
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x8f63A3E560b4bEBCf8bF056cbb8fC8E4b36B1b80
+```
+
+Output: Account 0x8f63A3E560b4bEBCf8bF056cbb8fC8E4b36B1b80 has 20000000000000000000 units of voting power
+
 **sanfarans**
 redeploying ballot contract:
 
