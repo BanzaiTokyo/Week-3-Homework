@@ -167,3 +167,12 @@ npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3a
 Voting on proposal[3] strawberry with 7 voting tokens
 
 Transaction hash: 0xea42203c62dcc2a540e1e16d738b40e582531b2a3e0531c1c01f9d1ee0aa8ba0
+
+**@Mauro.monso
+Voting on Potato with 10 votes:
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 2 10
+```
+voter address: 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
+Output:
+Transaction hash: 0x379f00b1f00e960e7c9ee6219b49fa6a29cbc89280d89478174365516a01a31d
