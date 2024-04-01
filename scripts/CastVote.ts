@@ -2,8 +2,7 @@ import {createPublicClient, createWalletClient, formatEther, hexToString, http, 
 import {privateKeyToAccount} from "viem/accounts";
 import {sepolia} from "viem/chains";
 import * as dotenv from "dotenv";
-import {viem} from "hardhat";
-import { abi, bytecode } from "../artifacts/contracts/TokenizedBallot.sol/TokenizedBallot.json";
+import {abi} from "../artifacts/contracts/TokenizedBallot.sol/TokenizedBallot.json";
 
 dotenv.config();
 
@@ -57,15 +56,15 @@ async function main() {
     );
 
     const proposalObj = await publicClient.readContract({
-      address: ballotContractAddress,
-      abi,
-      functionName: "proposals",
-      args: [proposalNumber],
+        address: ballotContractAddress,
+        abi,
+        functionName: "proposals",
+        args: [proposalNumber],
     }) as any;
     if (!proposalObj) {
-      throw new Error('couldn\'t retrieve proposal');
+        throw new Error('couldn\'t retrieve proposal');
     }
-    const proposal = hexToString(proposalObj[0], { size: 32 });
+    const proposal = hexToString(proposalObj[0], {size: 32});
 
     console.log(`\nVoting on proposal[${proposalNumber}] ${proposal} with ${amount} voting tokens`);
 
@@ -74,15 +73,15 @@ async function main() {
     stdin.addListener("data", async function (d) {
         if (d.toString().trim().toLowerCase() !== "n") {
             const hash = await voter.writeContract({
-              address: ballotContractAddress,
-              abi,
-              functionName: "vote",
-              args: [proposalNumber, parseEther(amount)]
+                address: ballotContractAddress,
+                abi,
+                functionName: "vote",
+                args: [proposalNumber, parseEther(amount)]
             });
             console.log("Transaction hash:", hash);
             console.log("Waiting for confirmations...");
             const receipt = await publicClient.waitForTransactionReceipt({hash});
-            console.log("Vote successful", receipt);
+            console.log("Vote successful:", receipt.transactionHash);
         } else {
             console.log("Operation cancelled");
         }
