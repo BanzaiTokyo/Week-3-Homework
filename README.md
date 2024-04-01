@@ -118,3 +118,34 @@ npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7
 ```
 Output Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 20000000000000000000 units of voting power
 
+**sanfarans**
+redeploying ballot contract:
+```bash
+npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 5607468 chocolate vanilla potato strawberry onion
+```
+Transaction hash: 0x436c58de231c485d93ad768f0979c4bfcf4a0bb60f75f91ecff5c0a432848980
+TokenizedBallot contract deployed to: `0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6`
+
+voting on potato with 6 votes:
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 2 6
+```
+Transaction hash: 0x2a923ceb74fa913060cdc575154d20339c4b3808da4166e8587466cf492c3885
+
+check winning proposal:
+```bash
+npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
+```
+Winning proposal name: potato
+
+voting on onion with 9 votes:
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 4 9
+```
+Transaction hash: 0x2ea60fce5c2625a236b059933d71382c0e4918349cc968f9242386bf14137b4a
+
+check winning proposal:
+```bash
+npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
+```
+Winning proposal name: onion
