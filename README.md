@@ -149,3 +149,21 @@ check winning proposal:
 npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
 ```
 Winning proposal name: onion
+
+**@schelby5**
+
+Voting on vanilla with 5 votes:
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 1 5
+```
+Voting on proposal[1] vanilla with 5 voting tokens
+
+Transaction hash: 0x6d11e5158bfff6db27a15b196f3f8ce6d1cfa0bd379f903ef1ae8c9fef2fe7c2
+
+Voting on strawberry with 7 votes:
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 3 7
+```
+Voting on proposal[3] strawberry with 7 voting tokens
+
+Transaction hash: 0xea42203c62dcc2a540e1e16d738b40e582531b2a3e0531c1c01f9d1ee0aa8ba0
