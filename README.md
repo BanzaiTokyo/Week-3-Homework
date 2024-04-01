@@ -76,16 +76,19 @@ Check voting power, self-delegate, recheck voting power:
 ```bash
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
 ```
+
 Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 0 units of voting power
 
 ```bash
 npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
 ```
+
 Transaction hash: 0x2b6019ca63c65dbb356b11946684ec4bc228520e395139f273fce6bc643a1f78
 
 ```bash
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
 ```
+
 Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 20000000000000000000 units of voting power
 
 **@schelby5** self-delegate and check voting power:
@@ -93,86 +96,144 @@ Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 20000000000000000
 ```bash
 npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2146a0B704Da9701D127B8722C572a6e6693EfD
 ```
+
 Delegate successful 0x3e466527322772a9a6bc52e5291876fc98be883a949b41d1fbec07c7205ed6c6
 Transaction hash: 0x3e466527322772a9a6bc52e5291876fc98be883a949b41d1fbec07c7205ed6c6
 
 ```bash
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2146a0B704Da9701D127B8722C572a6e6693EfD
 ```
+
 Account 0xb2146a0B704Da9701D127B8722C572a6e6693EfD has 20000000000000000000 units of voting power
 
 **@Mauro.Monso** check voting power:
+
 ```bash
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
 ```
+
 Output
 Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 0 units of voting power
 Self Delegate
+
 ```bash
 npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
 ```
+
 Successful delegation Transaction hash: 0x5110424c459a107c99d283e6a3f5af33968646f11909ff84ff7c1232c3d93a4e
 Now I check again the voting power:
+
 ```bash
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
 ```
+
 Output Account 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d has 20000000000000000000 units of voting power
 
 **sanfarans**
 redeploying ballot contract:
+
 ```bash
 npx ts-node --files ./scripts/DeployBallotContract.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 5607468 chocolate vanilla potato strawberry onion
 ```
+
 Transaction hash: 0x436c58de231c485d93ad768f0979c4bfcf4a0bb60f75f91ecff5c0a432848980
 TokenizedBallot contract deployed to: `0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6`
 
 voting on potato with 6 votes:
+
 ```bash
 npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 2 6
 ```
+
 Transaction hash: 0x2a923ceb74fa913060cdc575154d20339c4b3808da4166e8587466cf492c3885
 
 check winning proposal:
+
 ```bash
 npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
 ```
+
 Winning proposal name: potato
 
 voting on onion with 9 votes:
+
 ```bash
 npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 4 9
 ```
+
 Transaction hash: 0x2ea60fce5c2625a236b059933d71382c0e4918349cc968f9242386bf14137b4a
 
 check winning proposal:
+
 ```bash
 npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
 ```
+
 Winning proposal name: onion
 
 **@schelby5**
 
 Voting on vanilla with 5 votes:
+
 ```bash
 npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 1 5
 ```
+
 Voting on proposal[1] vanilla with 5 voting tokens
 
 Transaction hash: 0x6d11e5158bfff6db27a15b196f3f8ce6d1cfa0bd379f903ef1ae8c9fef2fe7c2
 
 Voting on strawberry with 7 votes:
+
 ```bash
 npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 3 7
 ```
+
 Voting on proposal[3] strawberry with 7 voting tokens
 
 Transaction hash: 0xea42203c62dcc2a540e1e16d738b40e582531b2a3e0531c1c01f9d1ee0aa8ba0
 
 **@Mauro.monso**
 Voting on Potato with 10 votes:
+
 ```bash
 npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 2 10
 ```
+
 voter address: 0x15D2Aaee6e12D9A0e893e1169D061dA07Fb92D9d
 Output:
 Transaction hash: 0x379f00b1f00e960e7c9ee6219b49fa6a29cbc89280d89478174365516a01a31d
+
+**@jvalero.dv**
+
+Voting on Potato with 4 votes:
+
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 2 4
+```
+
+Transaction hash: 0x16011de27ab815f4b13d0b16eaee2bf84f66dae12eb698fa8aa5a2a765a021a9
+
+Voting on Strawberry with 3 votes:
+
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 3 3
+```
+
+Transaction hash: 0x5b60eacd9776e579aaa94aa2ca02bd43696e9b27e2cecba9f03e9b988dab79ab
+
+Attempting to vote with more votes than votes left (13):
+
+```bash
+npx ts-node --files ./scripts/CastVote.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6 3 15
+```
+
+Output: TransactionExecutionError: Execution reverted with reason: Not enough tokens to vote.
+
+check winning proposal:
+
+```bash
+npx ts-node --files ./scripts/CheckWinningProposal.ts 0x01ccab1d1a4464535dd2f14a56ae5d72be3ae5a6
+```
+
+Output: Winning proposal name: potato
