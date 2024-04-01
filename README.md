@@ -70,7 +70,7 @@ Transaction hash: 0xd9483657136e988c6aa2247bbdc0588786527f9394ae768699d551a33077
 
 Output: Account 0x765A6B5fB4aBE2381bC2Be4928F3D09C978dc5BB has 20000000000000000000 units of voting power
 
-**@BanzaiTokyo**  
+**@BanzaiTokyo**
 Check voting power, self-delegate, recheck voting power:
 
 ```bash
@@ -87,3 +87,16 @@ Transaction hash: 0x2b6019ca63c65dbb356b11946684ec4bc228520e395139f273fce6bc643a
 npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A
 ```
 Output: Account 0x46656d5628464fB99bE9b3d35FBbc3D185506b4A has 20000000000000000000 units of voting power
+
+**@schelby5** self-delegate and check voting power:
+
+```bash
+npx ts-node --files ./scripts/DelegateTokens.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2146a0B704Da9701D127B8722C572a6e6693EfD
+```
+Delegate successful 0x3e466527322772a9a6bc52e5291876fc98be883a949b41d1fbec07c7205ed6c6
+Transaction hash: 0x3e466527322772a9a6bc52e5291876fc98be883a949b41d1fbec07c7205ed6c6
+
+```bash
+npx ts-node --files ./scripts/CheckVotingPower.ts 0xbdca53dd3a6fd9663774a6b158c7277435deab4e 0xb2146a0B704Da9701D127B8722C572a6e6693EfD
+```
+Account 0xb2146a0B704Da9701D127B8722C572a6e6693EfD has 20000000000000000000 units of voting power
